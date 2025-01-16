@@ -17,7 +17,7 @@ const Profile = () => {
       {/* Profile Card */}
       <View style={styles.profileCard}>
         <TouchableOpacity style={styles.profileHeader} onPress={() => navigation.navigate('EditProfile')}>
-          <Image source={require('./assets/cartoonimg46r7r785898968.jpg')} style={styles.profileImage} />
+          <Image source={require('../../assets/cartoonimg46r7r785898968.jpg')} style={styles.profileImage} />
           <View style={styles.textContainer}>
             <Text style={styles.name}>Vaibhav Hiremath</Text>
             <Text style={styles.subHeader}>Neet Aspirant</Text>

@@ -17,7 +17,7 @@ const SplashScreen = ({ navigation }) => {
     setTimeout(() => {
       navigation.replace('Login'); // Navigate to MainTabs
     }, 3000);
-  }, []);
+  }, [navigation]);
 
   return (
     <View style={styles.container}>

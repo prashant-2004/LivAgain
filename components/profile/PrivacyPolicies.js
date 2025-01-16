@@ -5,7 +5,7 @@ import { View, Text, ScrollView, StyleSheet, Dimensions, ImageBackground } from 
 const { width, height } = Dimensions.get('window');
 
 // background image
-const backgroundImage = require('./assets/LivAgainAppLOGO.png');
+const backgroundImage = require('../../assets/LivAgainAppLOGO.png');
 
 const PrivacyPolicies = () => {
   return (

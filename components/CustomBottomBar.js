@@ -12,7 +12,7 @@ const CustomBottomBar = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigateToScreen('Home')}>
+      <TouchableOpacity onPress={() => navigateToScreen('student_home')}>
         <View style={styles.buttonContainer}>
           <Image source={require('./home.png')} style={styles.tabIcon} />
           <Text style={styles.tabText}>Home</Text>

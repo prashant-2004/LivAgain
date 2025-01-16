@@ -44,7 +44,7 @@ const PromotionalCard = () => {
           <Text style={styles.promoButtonText}>Book A Mentor</Text>
         </TouchableOpacity>
       </View>
-      <Image source={require('./assets/cartoonimg46r7r785898968.jpg')} style={styles.promoImage} />
+      <Image source={require('../../assets/cartoonimg46r7r785898968.jpg')} style={styles.promoImage} />
     </View>
   );
 };
@@ -86,7 +86,7 @@ const SubscriptionsPlanCard = () => {
 };
 
 // Home Component with scrollable screen
-const Home = ({ navigation }) => {
+const Mentor_Home = ({ navigation }) => {
   return (
     // Wrap the ScrollView with KeyboardAvoidingView for better handling on some devices
     <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
@@ -100,35 +100,35 @@ const Home = ({ navigation }) => {
             <FontAwesome name="bars" size={normalize(24)} color="black" />
           </TouchableOpacity>
           <Text style={styles.title}>
-            <Text style={styles.titleHighlight}>Liv</Text>Again
+            <Text style={styles.titleHighlight}>Liv</Text>Again FOR MENTOR
           </Text>
           <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-            <Image source={require('./assets/cartoonimg46r7r785898968.jpg')} style={styles.profileIcon} />
+            <Image source={require('../../assets/cartoonimg46r7r785898968.jpg')} style={styles.profileIcon} />
           </TouchableOpacity>
         </View>
 
         <Text style={styles.sectionTitle}>Top Mentors</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.mentorsScroll}>
           <MentorCard
-            image={require('./assets/temp1233433222323-removebg-preview.png')}
+            image={require('../../assets/temp1233433222323-removebg-preview.png')}
             name="Vedant Ekale"
             rating={4}
             navigation={navigation}
           />
           <MentorCard
-            image={require('./assets/cartoonimg46r7r785898968.jpg')}
+            image={require('../../assets/cartoonimg46r7r785898968.jpg')}
             name="Prashant kale"
             rating={3.5}
             navigation={navigation}
           />
           <MentorCard
-            image={require('./assets/cartoonimg46r7r785898968.jpg')}
+            image={require('../../assets/cartoonimg46r7r785898968.jpg')}
             name="Vaibahv H"
             rating={5}
             navigation={navigation}
           />
           <MentorCard
-            image={require('./assets/cartoonimg46r7r785898968.jpg')}
+            image={require('../../assets/cartoonimg46r7r785898968.jpg')}
             name="Vaibhav Nirgude"
             rating={5}
             navigation={navigation}
@@ -323,4 +323,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default Mentor_Home;

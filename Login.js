@@ -70,11 +70,11 @@ const Login = ({ onLogin }) => {
     
           // Navigation logic based on role_id
           if (role_id === 1) {
-            navigation.navigate('AboutUs'); // Navigate to student_home.js
+            navigation.navigate('student_home'); // Navigate to student_home.js
           } else if (role_id === 2) {
-            navigation.navigate('History'); // Navigate to mentor_home.js
+            navigation.navigate('mentor_home'); // Navigate to mentor_home.js
           } else {
-            navigation.navigate('Home'); // Default home page
+            // navigation.navigate('Home'); // Default home page
             Alert.alert('Invalid Role ID');
           }
         } 

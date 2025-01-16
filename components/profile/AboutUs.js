@@ -21,7 +21,7 @@ const AboutUs = () => {
 
       <Text style={styles.sectionTitle}>Our Team</Text>
       <View style={styles.ceoContainer}>
-        <Image source={require('./assets/CEO_Livagain_Photo.png')} style={styles.ceoImage} />
+        <Image source={require('../../assets/CEO_Livagain_Photo.png')} style={styles.ceoImage} />
         <Text style={styles.ceoName}>Mr. Vaibhav Nirgude</Text>
         <Text style={styles.ceoTitle}>Founder & CEO, Livagain</Text>
       </View>
@@ -50,17 +50,17 @@ const AboutUs = () => {
       <Text style={styles.sectionTitle}>Meet the Team</Text>
       <View style={styles.teamContainer}>
         <View style={styles.teamMember}>
-          <Image source={require('./assets/Livagain_Team_Jyotiba.jpg')} style={styles.teamImage} />
+          <Image source={require('../../assets/Livagain_Team_Jyotiba.jpg')} style={styles.teamImage} />
           <Text style={styles.teamName}>Jyotiba Sadawarte</Text>
           <Text style={styles.teamRole}>MBBS Student @GMC, Nanded</Text>
         </View>
         <View style={styles.teamMember}>
-          <Image source={require('./assets/Livagain_Team_Nikhil.jpg')} style={styles.teamImage} />
+          <Image source={require('../../assets/Livagain_Team_Nikhil.jpg')} style={styles.teamImage} />
           <Text style={styles.teamName}>Nikhil Jogdand</Text>
           <Text style={styles.teamRole}>BDS Student @SDDC, Parbhani</Text>
         </View>
         <View style={styles.teamMember}>
-          <Image source={require('./assets/Livagain_Team_AhmedGaniyani.jpg')} style={styles.teamImage} />
+          <Image source={require('../../assets/Livagain_Team_AhmedGaniyani.jpg')} style={styles.teamImage} />
           <Text style={styles.teamName}>Ahmed Ganiyani</Text>
           <Text style={styles.teamRole}>MBBS Student @GMC, Nanded</Text>
         </View>

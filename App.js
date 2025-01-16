@@ -1,115 +1,221 @@
+// import './gesture-handler';
 import React from 'react';
-import { View, StyleSheet, Dimensions, Platform, PixelRatio } from 'react-native';
+import { View, StyleSheet, Dimensions, Platform, PixelRatio, TouchableOpacity, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Home from './HomePage';
+import FontAwesome from 'react-native-vector-icons/FontAwesome'; 
+import Student_Home from './components/student/Student_Home';
+import MainTabs from './MainTabs';
+import Mentor_Home from './components/mentor/Mentor_Home';
 import Login from './Login';
-import Profile from './Profile';
-import WalletScreen from './WalletScreen';
-import AddMentorScreen from './AddMentorScreen';
-import SearchScreen from './SearchScreen';
-import MentorProfile from './MentorProfile';
-import EditProfile from './EditProfile';
-import Transactions from './Transactions';
-import History from './History';
-import SavedMentors from './SavedMentors';
-import HelpSupport from './HelpSupport';
-import AboutUs from './AboutUs';
-import PrivacyPolicies from './PrivacyPolicies';
+import Login_Page from './components/User/Login_Page';
+import Profile from './components/profile/Profile';
+import WalletScreen from './components/profile/WalletScreen';
+import AddMentorScreen from './components/student/AddMentorScreen';
+import SearchScreen from './components/student/SearchScreen';
+import MentorProfile from './components/mentor/MentorProfile';
+import EditProfile from './components/profile/EditProfile';
+import Transactions from './components/profile/Transactions';
+import History from './components/profile/History';
+import SavedMentors from './components/student/SavedMentors';
+import HelpSupport from './components/profile/HelpSupport';
+import AboutUs from './components/profile/AboutUs';
+import PrivacyPolicies from './components/profile/PrivacyPolicies';
 import SplashScreen from './SplashScreen';
-import BookSession from './BookSession'; // Import the BookSession screen
+import BookSession from './components/student/BookSession'; // Import the BookSession screen
 import Register from './Register';
+import BookingPage from './components/session/BookingPage';
+import PaymentPage from './components/session/PaymentPage';
+import AudioCallScreen from './components/session/AudioCallScreen';
+import VideoCallScreen from './components/session/VideoCallScreen';
+import ChatScreen from './components/session/ChatScreen';
+import DoubtScreen from './components/profile/DoubtScreen';
+import SeeAnswers from './components/questions/SeeAnswers';
+import PostQuestion from './components/questions/PostQuestion';
+import YourPostedQuestion from './components/questions/YourPostedQuestion';
+import HomePageWithTabs from './components/student/HomePageWithTabs';
+import VideoCallSession from './components/session/VideoCallSession';
+import AudioCallSession from './components/session/AudioCallSession';
+import ChatSession from './components/session/ChatSession';
+
+// import WalletScreen from './WalletScreen';
+// import VideoScreen from './VideoScreen';
+// import MentorProfile from './MentorProfile';
+// import History from './History';
+// import SavedMentors from './SavedMentors';
+// import HelpSupport from './HelpSupport';
+// import AboutUs from './AboutUs';
+// import PrivacyPolicies from './PrivacyPolicies';
+// import DoubtScreen from './DoubtScreen';
+// import ChatScreen from './ChatScreen';
+// import AudioScreen from './AudioScreen';
+// import SeeAnswers from './SeeAnswers';
+// import PostQuestion from './PostQuestion';
+// import YourPostedQuestion from './YourPostedQuestion';
 
 // Get screen dimensions for responsive scaling
-const { width, height } = Dimensions.get('window');
-
-// Function to normalize size based on screen dimensions
+const { width } = Dimensions.get('window');
 const normalize = (size) => {
   const scale = width / 375; // 375 is the base width for scaling
   const newSize = size * scale;
   return Math.round(PixelRatio.roundToNearestPixel(newSize));
 };
 
-const Tab = createBottomTabNavigator();
-// const Stack = createStackNavigator();
+// const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
-// Stack Navigator for Home excluding MentorProfile
-// function HomeStack() {
-//   return (
-//     <Stack.Navigator>
-//       <Stack.Screen 
-//         name="Home" 
-//         component={Home} 
-//         options={{ headerShown: false }} 
-//       />
-//     </Stack.Navigator>
-//   );
-// }
+// Home Stack Navigator
+export function HomeStack({ navigation }) {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="student_home_1"
+        component={Student_Home}
+        options={{
+          headerTitle: () => (
+            <Text style={styles.title}>
+              <Text style={styles.titleHighlight}>Liv</Text>Again
+            </Text>
+          ),
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+              <FontAwesome name="bars" size={normalize(24)} color="black" style={styles.headerIcon} />
+            </TouchableOpacity>
+          ),
+          headerRight: () => (
+            <View style={{ flexDirection: 'row' }}>
+              <TouchableOpacity onPress={() => navigation.navigate('WalletScreen')}>
+                <FontAwesome name="money" size={normalize(24)} color="black" style={styles.headerIcon} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate('HelpSupport')}>
+                <FontAwesome name="headphones" size={normalize(24)} color="black" style={styles.headerIcon} />
+              </TouchableOpacity>
+            </View>
+          ),
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
 
-// Stack Navigator for Profile
-// function ProfileStackNavigator() {
-//   return (
-//     <Stack.Navigator>
-//       <Stack.Screen 
-//         name="Profile" 
-//         component={Profile} 
-//         options={{ headerShown: false }} 
-//       />
-//     </Stack.Navigator>
-//   );
-// }
+// Chat Stack Navigator
+export function ChatStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="ChatScreen_1"
+        component={ChatScreen}
+        options={({ navigation }) => ({
+          title: 'Chat With Mentors',
+          headerRight: () => (
+            <TouchableOpacity
+              style={{ marginRight: normalize(10) }}
+              onPress={() => {
+                
+                console.log('Filter icon pressed');
+              }}
+            >
+              <FontAwesome name="filter" size={normalize(24)} color="black" />
+            </TouchableOpacity>
+          ),
+          headerTitleAlign: 'left',
+          headerStyle: { backgroundColor: 'white' },
+          headerTitleStyle: { fontSize: normalize(22) },
+        })}
+      />
+    </Stack.Navigator>
+  );
+}
+// Audio Stack Navigator
+export function AudioStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Audio"
+        component={AudioCallScreen}
+        options={({ navigation }) => ({
+          title: 'Talk With Mentors',
+          headerRight: () => (
+            <TouchableOpacity
+              style={{ marginRight: normalize(10) }}
+              onPress={() => {
+                // Add filter action logic here
+                console.log('Filter icon pressed');
+              }}
+            >
+              <FontAwesome name="filter" size={normalize(24)} color="black" />
+            </TouchableOpacity>
+          ),
+          headerTitleAlign: 'left',
+          headerStyle: { backgroundColor: 'white' },
+          headerTitleStyle: { fontSize: normalize(22) },
+        })}
+      />
+    </Stack.Navigator>
+  );
+}
+// Video Stack Navigator
+export function VideoStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Video"
+        component={VideoCallScreen}
+        options={({ navigation }) => ({
+          title: 'Live Call With Mentors',
+          headerRight: () => (
+            <TouchableOpacity
+              style={{ marginRight: normalize(10) }}
+              onPress={() => {
+                // Add filter action logic here
+                console.log('Filter icon pressed');
+              }}
+            >
+              <FontAwesome name="filter" size={normalize(24)} color="black" />
+            </TouchableOpacity>
+          ),
+          headerTitleAlign: 'left',
+          headerStyle: { backgroundColor: 'white' },
+          headerTitleStyle: { fontSize: normalize(22) },
+        })}
+      />
+    </Stack.Navigator>
+  );
+}
 
-// Global Stack Navigator to handle full-screen pages and Splash Screen
-const GlobalStack = createStackNavigator();
-
-export default function App() {
+// Global Stack Navigator
+function App() {
   return (
     <NavigationContainer>
-      <GlobalStack.Navigator initialRouteName='Login'>
+
+      <Stack.Navigator initialRouteName="Login">
 
         {/* Login Screen */}
-        <GlobalStack.Screen 
+         <Stack.Screen 
           name="Login" 
-          component={Login} 
+          component={Login_Page} 
           options={{ headerShown: false }} 
         />
 
-        {/* register Screen */}
-        <GlobalStack.Screen 
-          name="Register" 
-          component={Register} 
-          options={{ headerShown: false }} 
-        /> 
-        
-        {/* Splash Screen */}
-        <GlobalStack.Screen 
-          name="SplashScreen" 
-          component={SplashScreen} 
-          options={{ headerShown: false }} 
-        />
-
-        {/* <GlobalStack.Screen
-          name="Home" 
-          component={Home} 
+        <Stack.Screen
+          name="Register"
+          component={Register}
           options={{ headerShown: false }}
         />
 
-        <GlobalStack.Screen
-          name="Profile" 
-          component={Profile} 
+        <Stack.Screen
+          name="student_home" 
+          component={HomeStack} 
           options={{ headerShown: false }}
-        /> */}
-          {/* Main Tab Navigator */}
-        <GlobalStack.Screen 
-          name="MainTabs" 
-          component={MainTabs} 
-          options={{ headerShown: false }} 
+        />
+        <Stack.Screen
+          name="mentor_home" 
+          component={Mentor_Home} 
+          options={{ headerShown: false }}
         />
 
-        {/* Full-Screen Pages */}
-        <GlobalStack.Screen 
+        <Stack.Screen 
           name="EditProfile" 
           component={EditProfile} 
           options={{
@@ -117,169 +223,178 @@ export default function App() {
             headerShown: true,
           }}
         />
-        <GlobalStack.Screen 
-          name="MentorProfile" 
-          component={MentorProfile} 
-          options={{ 
-            title: 'Mentor Profile',
-            headerShown: true 
-          }} 
+
+        {/* <Stack.Screen
+          name="Home" 
+          component={Student_Home} 
+          options={{ headerShown: false }}
+        /> */}
+
+        {/* Main Tabs */}
+        {/* <Stack.Screen
+          name="MainTabs"
+          component={MainTabs}
+          options={{ headerShown: false }}
+        /> */}
+
+        <Stack.Screen
+          name="WalletScreen"
+          component={WalletScreen}
+          options={{ title: 'WalletScreen' }}
         />
-        <GlobalStack.Screen 
-          name="Transactions" 
-          component={Transactions} 
-          options={{ 
-            title: 'Transactions',
-            headerShown: true 
-          }} 
+        <Stack.Screen
+          name="History"
+          component={History}
+          options={{ title: 'History' }}
         />
-        <GlobalStack.Screen 
-          name="History" 
-          component={History} 
-          options={{ 
-            title: 'History',
-            headerShown: true 
-          }} 
+        <Stack.Screen
+          name="SavedMentors"
+          component={SavedMentors}
+          options={{ title: 'Saved Mentors' }}
         />
-        <GlobalStack.Screen 
-          name="SavedMentors" 
-          component={SavedMentors} 
-          options={{ 
-            title: 'Saved Mentors',
-            headerShown: true 
-          }} 
+        <Stack.Screen
+          name="HelpSupport"
+          component={HelpSupport}
+          options={{ title: 'Help & Support' }}
         />
-        <GlobalStack.Screen 
-          name="HelpSupport" 
-          component={HelpSupport} 
-          options={{ 
-            title: 'Help & Support',
-            headerShown: true 
-          }} 
+        <Stack.Screen
+          name="AboutUs"
+          component={AboutUs}
+          options={{ title: 'About Us' }}
         />
-        <GlobalStack.Screen 
-          name="AboutUs" 
-          component={AboutUs} 
-          options={{ 
-            title: 'About Us',
-            headerShown: true 
-          }} 
+        <Stack.Screen
+          name="PrivacyPolicies"
+          component={PrivacyPolicies}
+          options={{ title: 'Privacy Policies' }}
         />
-        <GlobalStack.Screen 
-          name="PrivacyPolicies" 
-          component={PrivacyPolicies} 
-          options={{ 
-            title: 'Privacy Policies',
-            headerShown: true 
-          }} 
+
+        <Stack.Screen
+          name="VideoScreen"
+          component={VideoCallScreen} // Add the new VideoScreen component
+          options={() => ({
+            title: 'Live Call With Mentors',
+            headerRight: () => (
+              <TouchableOpacity
+                style={{ marginRight: normalize(10) }}
+                onPress={() => {
+                  // Add filter action logic here
+                  console.log('Filter icon pressed');
+                }}
+              >
+                <FontAwesome name="filter" size={normalize(24)} color="black" />
+              </TouchableOpacity>
+            ),
+            headerTitleAlign: 'left',
+            headerStyle: { backgroundColor: 'white' },
+            headerTitleStyle: { fontSize: normalize(22) },
+          })}
         />
-        <GlobalStack.Screen 
-          name="BookSession" 
-          component={BookSession} 
-          options={{
-            title: 'Book A Session',
-            headerShown: true,
-          }}
+        
+        <Stack.Screen
+          name="ChatScreen"
+          component={ChatScreen}
+          options={({ navigation }) => ({
+            title: 'Chat With Mentors',
+            headerRight: () => (
+              <TouchableOpacity
+                style={{ marginRight: normalize(10) }}
+                onPress={() => {
+                  
+                  console.log('Filter icon pressed');
+                }}
+              >
+                <FontAwesome name="filter" size={normalize(24)} color="black" />
+              </TouchableOpacity>
+            ),
+            headerTitleAlign: 'left',
+            headerStyle: { backgroundColor: 'white' },
+            headerTitleStyle: { fontSize: normalize(22) },
+          })}
         />
-      </GlobalStack.Navigator>
+
+        <Stack.Screen
+          name="AudioScreen"
+          component={AudioCallScreen}
+          options={() => ({
+            title: 'Talk With Mentors',
+            headerRight: () => (
+              <TouchableOpacity
+                style={{ marginRight: normalize(10) }}
+                onPress={() => {
+                  // Add filter action logic here
+                  console.log('Filter icon pressed');
+                }}
+              >
+                <FontAwesome name="filter" size={normalize(24)} color="black" />
+              </TouchableOpacity>
+            ),
+            headerTitleAlign: 'left',
+            headerStyle: { backgroundColor: 'white' },
+            headerTitleStyle: { fontSize: normalize(22) },
+          })}
+        />
+
+        <Stack.Screen
+          name="VideoCallSession"
+          component={VideoCallSession}
+          options={{ title: '' }}
+        />
+
+        <Stack.Screen
+          name="AudioCallSession"
+          component={AudioCallSession}
+          options={{ title: '' }}
+        />
+
+        <Stack.Screen
+          name="ChatSession"
+          component={ChatSession}
+          options={{ title: '' }}
+        />
+
+        <Stack.Screen
+          name="MentorProfile"
+          component={MentorProfile}
+          options={{ title: 'Mentor Profile' }}
+        />
+
+        <Stack.Screen
+          name="DoubtScreen"
+          component={DoubtScreen}
+          options={{ title: 'Doubt Section' }}
+        />
+        <Stack.Screen
+          name="SeeAnswers"
+          component={SeeAnswers}
+          options={{ title: 'See Answers' }} // Customize the header title if needed
+        />
+        <Stack.Screen
+          name="PostQuestion"
+          component={PostQuestion}
+          options={{ title: 'Post a Question' }}
+        />
+        <Stack.Screen
+          name="YourPostedQuestion"
+          component={YourPostedQuestion}
+          options={{ title: 'Post a Question' }}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-// Main Tab Navigator
-function MainTabs() {
-  return (
-    <Tab.Navigator
-      screenOptions={{
-        tabBarStyle: {
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          elevation: 0,
-          borderTopWidth: 0,
-          backgroundColor: 'white',
-          height: normalize(70), // Responsive height
-        },
-        tabBarActiveTintColor: '#ff6f61',
-        tabBarInactiveTintColor: '#777',
-        tabBarIconStyle: { marginTop: Platform.OS === 'android' ? normalize(5) : 0 }, // Adjust icon padding for Android
-      }}
-    >
-      <Tab.Screen 
-        name="Home" 
-        component={Home} 
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ color }) => <FontAwesome name="home" size={normalize(24)} color={color} />,
-        }} 
-      />
-      <Tab.Screen 
-        name="Wallet" 
-        component={WalletScreen} 
-        options={{
-          title: 'Wallet',
-          tabBarIcon: ({ color }) => <FontAwesome name="money" size={normalize(24)} color={color} />,
-        }} 
-      />
-      <Tab.Screen 
-        name="AddMentor" 
-        component={AddMentorScreen} 
-        options={{
-          title: 'Post a Doubt',
-          tabBarIcon: () => (
-            <View style={styles.fab}>
-              <FontAwesome name="plus" size={normalize(24)} color="white" />
-            </View>
-          ),
-        }} 
-      />
-      <Tab.Screen 
-        name="Search" 
-        component={SearchScreen} 
-        options={{
-          title: 'Search',
-          tabBarIcon: ({ color }) => <FontAwesome name="search" size={normalize(24)} color={color} />,
-        }} 
-      />
-      <Tab.Screen 
-        name="Profile" 
-        component={Profile} 
-        options={{
-          title: 'Profile',
-          tabBarIcon: ({ color }) => <FontAwesome name="user-o" size={normalize(24)} color={color} />,
-        }} 
-      />
-    </Tab.Navigator>
-  );
-}
-
-// Styles for FAB and tab bar
+// Styles
 const styles = StyleSheet.create({
-  fab: {
-    position: 'absolute',
-    bottom: normalize(25),
-    left: '50%',
-    transform: [{ translateX: -normalize(30) }],
-    backgroundColor: '#ff6f61',
-    width: normalize(60),
-    height: normalize(60),
-    borderRadius: normalize(30),
-    alignItems: 'center',
-    justifyContent: 'center',
-    elevation: 5,
+  title: {
+    fontSize: normalize(24),
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color:'black'
+  },
+  titleHighlight: {
+    color: '#2392d1',
+  },
+  headerIcon: {
+    marginHorizontal: normalize(10),
   },
 });
-
-
-
-// import React from "react";
-// import Login from "./Login";
-
-// const App = () => {
-//   return (
-//    <Login/>
-//   );
-// };
-
-// export default App;
+export default App;
