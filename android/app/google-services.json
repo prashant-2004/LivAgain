@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1068662700285",
+    "firebase_url": "https://livagain-65e42-default-rtdb.firebaseio.com",
+    "project_id": "livagain-65e42",
+    "storage_bucket": "livagain-65e42.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068662700285:android:02a1f05b7b3ee90d45e694",
+        "android_client_info": {
+          "package_name": "com.livagain"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtU1qWwTBcQAGmjMhXkH4myW9YOXuDcKw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
