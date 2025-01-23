@@ -37,5 +37,10 @@ package="com.livagain">
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+      <service
+              android:name="com.daily.reactlibrary.DailyOngoingMeetingForegroundService"
+              android:exported="false"
+              android:foregroundServiceType="camera|microphone"
+      />
     </application>
 </manifest>

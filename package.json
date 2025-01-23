@@ -10,7 +10,10 @@
     "test": "jest"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^2.1.0",
+    "@daily-co/react-native-daily-js": "^0.70.0",
+    "@daily-co/react-native-webrtc": "^118.0.3-daily.2",
+    "@react-native-async-storage/async-storage": "^1.15.7",
+    "@react-native-clipboard/clipboard": "^1.9.0",
     "@react-native-community/datetimepicker": "^8.2.0",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-firebase/app": "^21.6.1",
@@ -31,12 +34,16 @@
     "react": "^18.3.1",
     "react-native": "^0.76.3",
     "react-native-animatable": "^1.4.0",
+    "react-native-background-timer": "^2.3.1",
+    "react-native-dropdown-picker": "^5.3.0",
     "react-native-gesture-handler": "^2.22.0",
+    "react-native-get-random-values": "^1.9.0",
     "react-native-image-picker": "^7.1.2",
     "react-native-razorpay": "^2.3.0",
     "react-native-reanimated": "^3.16.7",
     "react-native-safe-area-context": "^5.1.0",
     "react-native-screens": "^4.5.0",
+    "react-native-svg": "^15.11.1",
     "react-native-toast-message": "^2.2.1",
     "react-native-vector-icons": "^10.2.0"
   },

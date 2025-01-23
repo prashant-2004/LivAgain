@@ -24,7 +24,9 @@ const Register_Page = ({navigation}) => {
   const [confPasswordError, setConfPasswordError] = useState('');
   const [phoneNoError, setPhoneNoError] = useState('');
   const [nameError, setNameError] = useState('');
-  
+
+  const [balance, setBalance] = useState(0);
+
   // AFTER DARK-MODE BUTTON CLICKED..-->>
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -83,6 +85,7 @@ const Register_Page = ({navigation}) => {
           name: Name,
           phoneNo: phoneNo,
           email: email,
+          balance:balance,
         });
     
         console.log('User registered and data saved!');
@@ -239,8 +242,7 @@ const styles = StyleSheet.create({
     margin:'auto',
     marginHorizontal:130,
     alignItems:"center",
-    transform: [{ translateY: 200 }],
-    transform:[{translateX:0}]
+    transform: [{ translateY: 200, translateX:0 }],
   },
   toggleIcon: {
     width: 50,
@@ -275,9 +277,7 @@ const styles = StyleSheet.create({
   input: {
     width: '100%',
     height: 55,
-    borderRadius: 8,
     paddingHorizontal: 20,
-    marginBottom: 15,
     fontSize: 16,
     // backgroundColor: '#f4f4f4', // WHITE Background color
     backgroundColor: '#444', // Input field background color

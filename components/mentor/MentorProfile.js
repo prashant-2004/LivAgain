@@ -69,7 +69,7 @@ const MentorProfile = ({ route, navigation }) => {
 
         <TouchableOpacity
           style={styles.footerButtonBox}
-          onPress={() => navigation.navigate('VideoCallSession')}
+          onPress={() => navigation.navigate('VideoCallRoom')}
         >
           <FontAwesome name="video-camera" size={normalize(24)} color="#2392d1" />
           <Text style={styles.footerButtonText}>Video Call</Text>

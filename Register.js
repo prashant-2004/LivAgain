@@ -12,6 +12,7 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
+  const [balance, setBalance] = useState(0);
   const navigation = useNavigation();
 
   const handleLogin = async () =>{
@@ -33,6 +34,7 @@ const Register = () => {
         mobile_number: mobileNo,
         email: email,
         role_id:role_id,
+        balance:balance,
         createdAt: firestore.FieldValue.serverTimestamp(),
       });
 

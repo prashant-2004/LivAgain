@@ -25,6 +25,7 @@ import SeeAnswers from './components/questions/SeeAnswers';
 import PostQuestion from './components/questions/PostQuestion';
 import YourPostedQuestion from './components/questions/YourPostedQuestion';
 import VideoCallSession from './components/session/VideoCallSession';
+import VideoCallRoom from './components/session/VideoCallRoom';
 import AudioCallSession from './components/session/AudioCallSession';
 import ChatSession from './components/session/ChatSession';
 
@@ -313,10 +314,16 @@ function App() {
           })}
         />
 
-        <Stack.Screen
+        {/* <Stack.Screen
           name="VideoCallSession"
           component={VideoCallSession}
           options={{ title: '' }}
+        /> */}
+
+        <Stack.Screen
+          name="VideoCallRoom"
+          component={VideoCallRoom}
+          options={{ title: 'Video Call Room' }}
         />
 
         <Stack.Screen
