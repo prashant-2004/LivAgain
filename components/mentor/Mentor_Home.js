@@ -218,7 +218,6 @@ const styles = StyleSheet.create({
     fontSize: normalize(14),
     color: '#777',
     marginVertical: normalize(5),
-    color:"black"
   },
   promoButton: {
     backgroundColor: '#ff6666',

@@ -79,6 +79,7 @@ android {
     compileSdk rootProject.ext.compileSdkVersion
 
     namespace "com.livagain"
+
     defaultConfig {
         applicationId "com.livagain"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -110,6 +111,9 @@ android {
 
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
+    implementation('im.zego:uikitreport')
+    implementation('im.zego:express-private')
+    implementation('im.zego:zim')
     implementation("com.facebook.react:react-android")
     implementation project(':rnwebrtc')
     implementation platform('com.google.firebase:firebase-bom:33.7.0')
@@ -126,3 +130,4 @@ project.ext.vectoricons = [
     iconFontNames: [ "AntDesign.ttf", "Entypo.ttf", "EvilIcons.ttf", "Feather.ttf", "FontAwesome.ttf", "FontAwesome5_Brands.ttf", "FontAwesome5_Regular.ttf", "FontAwesome5_Solid.ttf", "Foundation.ttf", "Ionicons.ttf", "MaterialCommunityIcons.ttf", "MaterialIcons.ttf", "Octicons.ttf", "SimpleLineIcons.ttf", "Zocial.ttf" ] // Specify the font files
 ]
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+

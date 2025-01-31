@@ -77,7 +77,7 @@ const MentorProfile = ({ route, navigation }) => {
 
         <TouchableOpacity
           style={styles.footerButtonBox}
-          onPress={() => navigation.navigate('AudioCallSession')}
+          onPress={() => navigation.navigate('AudioCallRoom')}
         >
           <FontAwesome name="phone" size={normalize(24)} color="#2392d1" />
           <Text style={styles.footerButtonText}>Audio Call</Text>

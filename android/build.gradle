@@ -8,8 +8,10 @@ buildscript {
         kotlinVersion = "1.9.24"
     }
     repositories {
+        maven { url 'https://artifacts.zego.im/repository/maven-public/' }
         google()
         mavenCentral()
+        maven { url 'https://www.jitpack.io' }
     }
     dependencies {
         classpath ("com.android.tools.build:gradle:8.7.0")
